@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="image/logo.ico">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg==" crossorigin="anonymous" referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw==" crossorigin="anonymous" referrerpolicy="no-referrer"
+    />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
+    <link href='https://fonts.googleapis.com/css?family=Quicksand' rel='stylesheet'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.2/js/toastr.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g==" crossorigin="anonymous" referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script src="js/menu.js"></script>
+    <script src="js/jobapplication.js"></script>
+    <script src="js/job.js"></script>
+    <script src="js/favorite.js"></script>
+    <script>
+        window.onload = function() {
+            loadMenu();
+            loadAJob()
+            checkFavorite();
+        }
+    </script>
+</head>
+<body>
+    <div id="menu"></div>
+    
+    <div class="content">
+        <div class="headerdetail row">
+            <div class="col-sm-2">
+                <div class="imageblock"><img src="image/p2.webp" id="imgcompany"></div>
+            </div>
+            <div class="col-sm-5">
+                    <h3 data-bs-toggle="modal" data-bs-target="#modaladd" class="name pointer" id="comname">Công Ty Cổ Phần VNG</h3>
+                    <strong>Công việc</strong>
+                    <p class="tencvdetail" id="tencongviec">VNG Campus, Z06, Đường số 13, Khu Chế Xuất Tân Thuận, P. Tân Thuận Đông, Q.7</p>
+                    <strong>Địa điểm</strong>
+                    <p class="dddetail" id="dddetail">VNG Campus, Z06, Đường số 13, Khu Chế Xuất Tân Thuận, P. Tân Thuận Đông, Q.7</p>
+                    <hr>
+                    <strong>Thông tin công ty</strong>
+                    <div id="ttcongty">
+
+                    </div>
+            </div>
+            <div class="col-sm-5">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <span><i class="fa fa-clock icdetail"></i> Ngày cập nhật</span>
+                        <span class="ifdetail" id="ngaycapnhat">10/11/2023</span><hr>
+                        <span><i class="fa fa-shopping-bag icdetail"></i> Ngành nghề</span>
+                        <span class="ifdetail" id="nganhnghe">Bán hàng / Kinh doanh , Luật / Pháp lý , Bảo hiểm
+                        </span><hr>
+                        <span><i class="fa fa-briefcase icdetail"></i> Hình thức</span>
+                        <span class="ifdetail" id="hinhthuc">Nhân viên chính thức</span>
+                    </div>
+                    <div class="col-sm-6">
+                        <span><i class="fa fa-dollar icdetail"></i> Lương</span>
+                        <span class="ifdetail" id="luongd">10 Tr - 30 Tr VND</span><hr>
+                        <span><i class="fa fa-briefcase icdetail"></i> Kinh nghiệm</span>
+                        <span class="ifdetail" id="kinhnghiem">Chưa có kinh nghiệm</span><hr>
+                        <span><i class="fa fa-user icdetail"></i> Cấp bậc</span>
+                        <span class="ifdetail" id="capbac">Nhân viên</span><hr>
+                        <span><i class="fa fa-calendar icdetail"></i> Hết hạn nộp</span>
+                        <span class="ifdetail" id="ngayhethan">07/12/2023</span><hr>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-8">
+                <span class="titlegtc">PHÚC LỢI</span>
+                <div class="row listph" id="listph">
+                    <span class="col-30p singlecd"><i class="fa fa-briefcase icdetail"></i> Chế độ bảo hiểm</span>
+                    <span class="col-30p singlecd"><i class="fa fa-briefcase icdetail"></i> Chế độ bảo hiểm</span>
+                    <span class="col-30p singlecd"><i class="fa fa-briefcase icdetail"></i> Chế độ bảo hiểm</span>
+                    <span class="col-30p singlecd"><i class="fa fa-briefcase icdetail"></i> Chế độ bảo hiểm</span>
+                    <span class="col-30p singlecd"><i class="fa fa-briefcase icdetail"></i> Chế độ bảo hiểm</span>
+                </div>
+                <span class="titlegtcmt">MÔ TẢ CÔNG VIỆC</span>
+                <div id="motacv">
+                    - Phụ trách nội dung trên fanpage liên quan đến sản phẩm, số lượng hàng hóa, chương trình khuyến mãi theo từng sản phẩm, trang thương mại được cập nhật đúng, đầy đủ
+                    - Đóng gói, kiểm tra hàng hóa để gửi cho khách hàng.
+                    - Theo dõi, kiểm soát tình trạng thực hiện các đơn hàng online từ khi ghi nhận đơn đặt hàng của khách tới khi hoàn thành đơn hàng và chăm sóc sau bán hàng.
+                </div>
+                <span class="titlegtcmt">YÊU CẦU CÔNG VIỆC</span>
+                <div id="yeucaucv">
+                    Độ tuổi từ đủ 18 trở lên Ứng viên có kinh nghiệm sale online fanpage, web hoặc làm về sàn thương mại điện tử
+                </div>
+                <span class="titlegtcmt">THÔNG TIN KHÁC</span>
+                <div id="ttkhac">
+                    Bằng cấp: Trung cấp Độ tuổi: 22 - 30 Lương: 6 Tr - 8 Tr VND
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <p class="similar-jobs">CÁC CÔNG VIỆC TƯƠNG TỰ</p>
+                <div class="row listjoblq" id="listjoblq">
+                    <!-- <div class="singlejob row">
+                        <div class="col-sm-3 col-3">
+                            <div class="divimgjob"><img src="image/p1.webp" class="imgjob"></div>
+                        </div>
+                        <div class="col-sm-9 col-9">
+                            <a href="" class="titlejoblq">Đông Anh - Kiểm soát viên Giao dịch </a>
+                            <span class="companyjob">Ngân Hàng TMCP Tiên Phong (TPBank)</span>
+                            <span class="inforjob salaryjob"><i class="fa fa-dollar"></i> Lương: cạnh tranh</span>
+                            <span class="inforjob"><i class="fa fa-location-arrow"></i> Hà nội</span>
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="footer"></div>  
+    
+
+    <div id="thongtinc">
+        <div class="ctnbut">
+            <span id="luutin"><i class="fa fa-heart-o pointer addytdetail"></i></span>
+            <button onclick="loadNameInit()" data-bs-toggle="modal" data-bs-target="#modalungtuyen" class="btnnopdon">Nộp đơn ứng tuyển</button>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modaladd" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-fullscreen-sm-down modeladdres">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Thông tin công ty</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <span class="titlegtc">GIỚI THIỆU VỀ CÔNG TY</span>
+                    <hr>
+                    <div>
+                        VNG is Vietnam's leading tech firm with a diverse ecosystem of products serving the needs of 100 million customers in Vietnam and many countries globally. VNG focuses on four main businesses, including online games, communications & media, fintech, and digital business. VNG has developed several digital products that contribute to businesses' journey of digital transformation and help Vietnamese citizens connect, transact and entertain. At the same time, the company also concentrates on long-term development by researching and exploring further opportunities in Data Centers and AI. Our passion for leading the change and embracing challenges has driven us to our mission: “Build Technology and Grow People. From Vietnam to the World". VNG currently has offices in Vietnam: Ho Chi Minh City, Hanoi, Da Nang, and many other offices around the world.
+                        Website: https://career.vng.com.vn
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modalungtuyen" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-fullscreen-sm-down modeladdres">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Nộp đơn ứng tuyển</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <label class="lbsa">Tiêu đề</label><br>
+                    <input id="titleapp" type="text" class="form-control">
+                    <label class="lbsa">Họ tên</label><br>
+                    <input id="fullnameapp" type="text" class="form-control">
+                    <label class="lbsa">Số điện thoại liên hệ</label><br>
+                    <input id="phoneapp" type="text" class="form-control">
+                    <label class="lbsa">Email</label><br>
+                    <input id="emailapp" type="text" class="form-control">
+                    <label class="lbsa">File CV ứng tuyển</label><br>
+                    <input id="filecv" accept="application/pdf" type="file" class="form-control"><br>
+                    <span>Lưu ý: (sau khi nộp đơn, không thể thu hồi)</span>
+                    <br><div id="loading">
+                        <div class="bar1 bar"></div>
+                    </div><br>
+                    <button onclick="createJobApp()" class="btn btn-primary form-control">Nộp đơn</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

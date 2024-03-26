@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="image/logo.ico">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg==" crossorigin="anonymous" referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw==" crossorigin="anonymous" referrerpolicy="no-referrer"
+    />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
+    <link href='https://fonts.googleapis.com/css?family=Quicksand' rel='stylesheet'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.2/js/toastr.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g==" crossorigin="anonymous" referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script src="js/menu.js"></script>
+    <script src="js/jobapplication.js"></script>
+    <script src="js/favorite.js"></script>
+    <script src="js/account.js"></script>
+    <script>
+        window.onload = function() {
+            loadMenu();
+            loadMyJobApplication();
+            loadMyFavorite();
+        }
+    </script>
+</head>
+<body>
+    <div id="menu"></div>
+    
+    <div class="content contentcart">
+        <div class="row cartbds">
+            <div class="col-lg-3 col-md-3 col-sm-12 col-12 collistcart">
+                <div class="navleft">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-6 col-6">
+                            <div class="avaaccount">
+                                <img src="image/avatar.webp" class="avataracc">
+                                <p id="fullnameuser" class="fullnamacc">Xin chào bạn</p>
+                                <button onclick="logout()" class="btnlogoutacc">Đăng xuất</button>
+                            </div>
+                        </div>
+                        <div class="col-lg-12 col-md-12 col-sm-6 col-6 sinv">
+                            <div onclick="changeLink(this,'hoso')" class="tabdv activetabdv">
+                                <a data-toggle="tab" href="#hoso"><img class="imgau" src="image/user.svg">Việc đã nộp</a>
+                            </div>
+                            <div onclick="changeLink(this,'daluu')" class="tabdv">
+                                <a data-toggle="tab" href="#daluu"><img class="imgau" src="image/invoice.svg">Việc đã lưu</a>
+                            </div>
+                            <div onclick="changeLink(this,'changepass')" class="tabdv">
+                                <a data-toggle="tab" href="#changepass"><img class="imgau" src="image/pass.svg">Đổi mật khẩu</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-9 col-md-9 col-sm-12 col-12 collistcart">
+                <div class="navright">
+                    <div class="tab-content contentab">
+                        <div role="tabpanel" class="tab-pane" id="daluu">
+                            <div class="headeraccount">
+                                <p class="fontyel">Việc đã lưu</p>
+                                <div class="right_flex">
+                                    <span class="textrf" id="sldonhang">0 việc</span>
+                                </div>
+                            </div>
+                            <table class="table table-cart table-order" id="my-orders-table">
+                                <thead class="thead-default">
+                                    <tr>
+                                        <th>Mã tin</th>
+                                        <th class="floatr">Ngày đăng</th>
+                                        <th>Tên công việc</th>
+                                        <th class="floatr">Địa điểm</th>
+                                        <th>Mức lương</th>
+                                        <th>Xóa</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="listFav">
+                                    <!-- <tr>
+                                        <td><a data-bs-toggle="modal" data-bs-target="#modaldeail" class="yls pointer-event">#115871</a></td>
+                                        <td class="floatr">11:37 21/09/2023</td>
+                                        <td>gia lam, ha noi, viet nam, vietnam,Quận Đống Đa, Hà Nội, Vietnam</td>
+                                        <td class="floatr"><span class="yls">gia lam, ha noi, viet nam, vietnam,Quận Đống Đa, Hà Nội, Vietnam</span></td>
+                                        <td><span class="span_pending">900000</span></td>
+                                        <td><i class="fa fa-trash-o huydon"></i></td>
+                                    </tr> -->
+                                </tbody>
+                            </table>
+                        </div>
+                        <div role="tabpanel" class="tab-pane" id="changepass">
+                            <div class="headeraccount">
+                                <span class="fontyel">Đổi mật khẩu</span><span class="smyl"> (Để bảo mật tài khoản, vui lòng không chia sẻ mật khẩu cho người khác)</span>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-12 col-12 passacc">
+                                <form action="javascript:changePassword()">
+                                    <label class="lbacc">Mật khẩu hiện tại *</label>
+                                    <input id="oldpass" type="password" class="form-control">
+                                    <label class="lbacc">Mật khẩu mới *</label>
+                                    <input id="newpass" type="password" class="form-control">
+                                    <label class="lbacc">Xác nhận mật khẩu mới *</label>
+                                    <input id="renewpass" type="password" class="form-control">
+                                    <br><button type="button" class="btnhuylogin" onclick="window.location.href='account'">HỦY</button>
+                                    <button type="submit" class="btntt">LƯU</button>
+                                </form>
+                            </div>
+                        </div>
+                        <div role="tabpanel" class="tab-pane active" id="hoso">
+                            <div class="headeraccount">
+                                <p class="fontyel">Hồ sơ của bạn</p>
+                            </div>
+                            <div class="contentacc" id="listaddacc">
+                                <table class="table table-cart table-order" id="my-orders-table">
+                                    <thead class="thead-default">
+                                        <tr>
+                                            <th>Mã hồ sơ</th>
+                                            <th class="floatr">Công việc</th>
+                                            <th>Công ty</th>
+                                            <th class="floatr">Ngày gửi</th>
+                                            <th>Tiêu đề</th>
+                                            <th class="floatr">Họ tên</th>
+                                            <th>Số điện thoại</th>
+                                            <th class="floatr">Email</th>
+                                            <th>File đã gửi</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="listjobApp">
+                                        <!-- <tr>
+                                            <td></td>
+                                            <td class="floatr"></td>
+                                            <td></td>
+                                            <td class="floatr"></td>
+                                            <td></td>
+                                            <td class="floatr"></td>
+                                            <td></td>
+                                            <td class="floatr"></td>
+                                            <td><a href="" target="_blank">Xem file</a></td>
+                                        </tr> -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="footer"></div>   
+</body>
+<div class="modal fade" id="modaladd" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-fullscreen-sm-down modeladdres">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Thêm/ cập nhật hồ cơ</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-lg-7 col-sm-12 col-12 formadd">
+                        <label class="lbsa">Họ tên liên hệ</label>
+                        <input id="fullnameadd" class="form-control fomd" placeholder="Họ tên">
+                    </div>
+                    <div class="col-lg-7 col-sm-12 col-12 formadd">
+                        <label class="lbsa">Số điện thoại</label>
+                        <input id="fullnameadd" class="form-control fomd" placeholder="Họ tên">
+                    </div>
+                    <div class="col-lg-7 col-sm-12 col-12 formadd">
+                        <label class="lbsa">Tên hồ sơ</label>
+                        <input id="fullnameadd" class="form-control fomd" placeholder="Họ tên">
+                    </div>
+                    <div class="col-lg-7 col-sm-12 col-12 formadd">
+                        <label class="lbsa">Chọn file hồ sơ (CV)</label>
+                        <input id="phoneadd" type="file" class="form-control">
+                    </div>
+                    <div class="col-lg-7 col-sm-12 col-12 formadd">
+                        <br><label class="checkbox-custom">Đặt làm hồ sơ mặc định
+                            <input id="primaryadd" type="checkbox">
+                            <span class="checkmark-checkbox"></span>
+                    </div>
+            </label>
+                <div class="col-lg-6 col-md-6">
+                    <br><button class="btnhuylogin" onclick="window.location.href='account'">HỦY</button>
+                    <button onclick="addAddressUser()" class="btntt">LƯU</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<script src="js/acchandle.js"></script>
+
+</html>

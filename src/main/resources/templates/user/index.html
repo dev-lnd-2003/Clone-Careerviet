@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="image/logo.ico">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg==" crossorigin="anonymous" referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw==" crossorigin="anonymous" referrerpolicy="no-referrer"
+    />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
+    <link href='https://fonts.googleapis.com/css?family=Quicksand' rel='stylesheet'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.2/js/toastr.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g==" crossorigin="anonymous" referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script src="js/menu.js"></script>
+    <script src="js/index.js"></script>
+    <script>
+        window.onload = function() {
+            loadMenu();
+            topCompany();
+            loadTop2Blog();
+            loadTopJob();
+            loadAllCarrer();
+        }
+    </script>
+</head>
+<body>
+    <div id="menu"></div>
+    
+    <div class="content" style="padding-top: 70px;">
+       <div class="contentabbanner">
+        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleControls" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleControls" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleControls" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <a href=""><img src="image/banner1.webp" class="d-block w-100" alt="..."></a>
+                </div>
+                <div class="carousel-item">
+                    <a href=""><img src="image/banner2.webp" class="d-block w-100" alt="..."></a>
+                </div>
+                <div class="carousel-item">
+                    <a href=""><img src="image/banner3.webp" class="d-block w-100" alt="..."></a>
+                </div>
+            </div>
+        </div>
+        <div class="frosbanner">
+            <span class="donthanhcong">Đón lấy thành công với</span>
+<!--            <p class="cohoinn">20,112 cơ hội nghề nghiệp</p>-->
+            <button onclick="location.href='listjob'" class="btntimngay">Tìm việc ngay</button>
+            <p class="tdnhanh">Đăng hồ sơ nghề nghiệp để dễ dàng ứng tuyển nhanh</p>
+            <button onclick="location.href='quanly/dangtin'" class="btndangngay">Đăng ngay</button>
+        </div>
+       </div>
+
+       <div class="contentabout">
+            <p class="titleabout">NHÀ TUYỂN DỤNG HÀNG ĐẦU</p>
+            <div class="row listnhatuyendung" id="listnhatuyendung">
+                <div class="col-sm-2">
+                    <img src="image/p1.webp" class="imgnhatuyendung">
+                </div>
+            </div>
+
+            <div class="row baivietnoibat" id="baivietnoibat">
+                <div class="col-sm-6">
+                    <a href=""><img src="image/banner1.webp" class="imgblogabout"></a>
+                </div>
+                <div class="col-sm-6">
+                    <a href=""><img src="image/banner3.webp" class="imgblogabout"></a>
+                </div>
+            </div>
+            <p class="titleabout">VIỆC LÀM NỔI BẬT</p>
+            <div class="row" id="listtopjob">
+                <div class="col-sm-6">
+                    <div class="singlejob row">
+                        <div class="col-sm-3 col-3">
+                            <div class="divimgjob"><img src="image/p1.webp" class="imgjob"></div>
+                        </div>
+                        <div class="col-sm-9 col-9">
+                            <a href="" class="titlejoblq">Đông Anh - Kiểm soát viên Giao dịch </a>
+                            <span class="companyjob">Ngân Hàng TMCP Tiên Phong (TPBank)</span>
+                            <span class="inforjob salaryjob"><i class="fa fa-dollar"></i> Lương: cạnh tranh</span>
+                            <span class="inforjob"><i class="fa fa-location-arrow"></i> Hà nội</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+<!--            <p class="titleabout">Ngành Nghề Trọng Điểm</p>-->
+<!--            <div id="dsmh_index">-->
+<!--                <div class="listdmindex owl-2-style">-->
+<!--                    <div class="owl-carousel owl-2" id="listcategoryindex">-->
+<!--                        <div class="media-29101">-->
+<!--                            <h5><a href="#">Kế toán / kiểm toán</a></h5>-->
+<!--                            <p>(1474 việc làm)</p>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--       </div>-->
+    </div>
+
+    <div id="footer"></div>   
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="js/carousel.js"></script>
+</body>
+</html>

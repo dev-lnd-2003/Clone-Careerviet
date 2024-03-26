@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<link href="css/styles.css" rel="stylesheet" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css" rel="stylesheet" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
+
+<script src="https://cdn.datatables.net/1.13.2/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.2/js/dataTables.bootstrap5.min.js"></script>
+<link href="https://cdn.datatables.net/1.13.2/css/dataTables.bootstrap5.min.css" rel="stylesheet" />
+<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css" rel="stylesheet" />
+<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+<script src="http://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.2/js/toastr.min.js"></script>
+<script src="js/main.js"></script>
+<script src="js/job.js"></script>
+<script>
+    window.onload = function(){
+        myJob();
+        loadStatus();
+    }
+</script>
+</head>
+<body class="sb-nav-fixed">
+    <nav id="top" class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+    </nav>
+    <div id="layoutSidenav">
+        <div id="layoutSidenav_nav">
+            <button></button>
+        </div>
+        <div id="layoutSidenav_content">
+            <main class="main">
+                <div class="blockcontent">
+                    <h3>Quản lý tin đăng</h3>
+<!--                    <div class="ghichuql">-->
+<!--                        <p>Nếu tin của bạn đăng bị khóa không chính xác, hãy liên hệ với chúng tôi để khắc phục sự cố</p>-->
+<!--                        <a href="lienhe">Liên hệ</a>-->
+<!--                    </div>-->
+                    <div class="headcontent row">
+                        <div class="col-sm-2">
+                            <label>&ThinSpace;</label><br>
+                            <a href="dangtin" class="btn btn-primary">Đăng tin</a>
+                        </div>
+                        <div class="col-sm-3">
+                            <label>chọn trạng thái</label>
+                            <select id="statuslist" class="form-control">
+                                <option value="-1">Tất cả</option>
+                            </select>
+                        </div>
+                        <div class="col-sm-3">
+                            <label>&ThinSpace;</label><br>
+                            <button onclick="myJob()" class="btn btn-primary"><i class="fa fa-filter"></i> Lọc</button>
+                        </div>
+                    </div>
+                    <table id="example" class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Mã tin</th>
+                                <th>Ảnh</th>
+                                <th>Tiêu đề</th>
+                                <th>Lương</th>
+                                <th>Chức vụ</th>
+                                <th>Ngày đăng</th>
+                                <th>Trạng thái</th>
+                                <th class="sticky-col">Chức năng</th>
+                            </tr>
+                        </thead>
+                        <tbody id="listjob">
+                            <!-- <tr>
+                                <td>#2342</td>
+                                <td><img src="../image/phong1.jpg" class="anhphongqltin"></td>
+                                <td>title</td>
+                                <td>2.400.000đ</td>
+                                <td>2.400.000đ</td>
+                                <td>2023-12-02</td>
+                                <td>Đang hiển thị</td>
+                                <td class="sticky-col">
+                                    <i class="fa fa-trash-alt iconaction"></i>
+                                    <i class="fa fa-edit iconaction"></i><br>
+                                </td>
+                            </tr> -->
+                        </tbody>
+                    </table>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <div id="passform"></div>
+
+    <div class="modal fade" id="listcvmodal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="false">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">CV</h5> <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div style="padding: 30px;">
+                    <table class="table table-bordered" id="my-orders-table">
+                        <thead class="thead-default">
+                            <tr>
+                                <th>Mã hồ sơ</th>
+                                <th class="floatr">Công việc</th>
+                                <th class="floatr">Ngày gửi</th>
+                                <th>Tiêu đề</th>
+                                <th class="floatr">Họ tên</th>
+                                <th>Số điện thoại</th>
+                                <th class="floatr">Email</th>
+                                <th>File đã gửi</th>
+                            </tr>
+                        </thead>
+                        <tbody id="listjobApp">
+                            <!-- <tr>
+                                <td></td>
+                                <td class="floatr"></td>
+                                <td></td>
+                                <td class="floatr"></td>
+                                <td></td>
+                                <td class="floatr"></td>
+                                <td></td>
+                                <td class="floatr"></td>
+                                <td><a href="" target="_blank">Xem file</a></td>
+                            </tr> -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>$('#example').DataTable();</script>
+</body>
+</html>
